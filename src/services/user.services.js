@@ -35,12 +35,14 @@ const login = async (payload) => {
         return responses.buildFailureResponse("Invalid password", 400)
     }
     const token = jwt.sign({email: foundUser.email}, process.env.JWT_SECRET, {
-        expiresIn: '15minutes'
+        expiresIn: '30d'
     })
+    console.log({token})
     foundUser.accessToken = token;
     return responses.buildSuccessResponse("Login successful", 200, foundUser);
 } catch (error) {
-    return responses.buildFailureResponse(error.message, error.statusCode)
+    console.log({error})
+    return responses.buildFailureResponse(error.message, 500)
 }};
 
 

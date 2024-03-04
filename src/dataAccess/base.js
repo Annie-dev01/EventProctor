@@ -15,7 +15,7 @@ module.exports = class DataRepo {
     }
 
     async findOne(query, populate = "") {
-        return await this.model.findOne(query).populate(populate)
+        return await this.model.findOne(query).populate(populate).lean()
     }
 
     async findAll(query, populate = "") {
@@ -30,3 +30,4 @@ module.exports = class DataRepo {
         return await this.model.findOneAndDelete(query)
     }
 }
+

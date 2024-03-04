@@ -10,8 +10,8 @@ const PORT = process.env.PORT ||3001;
 connectDB(process.env.MONGO_URI);
 app.use(express.json());
 
-app.use('/user', require('./routes/user.routes'));
-app.use('/event', require('./routes/event.routes'));
+app.use('/users', require('./routes/user.routes'));
+app.use('/events', require('./routes/event.routes'));
 
 
 app.listen(PORT, () =>{

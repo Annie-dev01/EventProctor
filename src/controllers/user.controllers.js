@@ -14,6 +14,7 @@ const  createUser = async (req, res) => {
 const  login = async (req, res) => {
     try {
         const data = await userServices.login(req.body);
+        console.log({data})
         res.status(data.statusCode).json(data)
 
     } catch (error) {
