@@ -19,12 +19,12 @@ async function authenticate(req, res, next) {
             throw new Error('User not found');
         }
 
-        if (foundUser.role !== 'user') {
-            return res.status(403).json({
-                message: "Only registered users are allowed to use this service",
-                status: "failure"
-            });
-        }
+        // if (foundUser.role !== 'user') {
+        //     return res.status(403).json({
+        //         message: "Only registered users are allowed to use this service",
+        //         status: "failure"
+        //     });
+        // }
 
         req.user = foundUser;
         next();

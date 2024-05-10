@@ -12,6 +12,8 @@ app.use(express.json());
 
 app.use('/users', require('./routes/user.routes'));
 app.use('/events', require('./routes/event.routes'));
+app.use('/attendees', require('./routes/attendee.routes'));
+
 
 
 app.listen(PORT, () =>{
