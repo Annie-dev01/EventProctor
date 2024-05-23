@@ -5,13 +5,12 @@ const fs = require('fs');
 
 const sendEmailWithAttachment = async (toEmail, qrFilePath) => {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-   // console.log({})
+  
     try {
         const msg = {
             to: toEmail,
-            from: 'EventProctor <joshuatobiajagbe@gmail.com>', 
+            from: 'AttendifyQR <joshuatobiajagbe@gmail.com>', 
             subject: 'Your Personalized QR Code for this Event',
-           // text: `Dear attendee,\n\nPlease find your personalized QR code attached.\n\nBest regards`,
             html: `<p>Dear attendee,</p><p>Please find your personalized QR code attached.</p><p>Best regards,<br>Your Organization</p>`,
             attachments: [
                 {

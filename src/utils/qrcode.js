@@ -4,7 +4,6 @@ const path = require('path');
 const generateQrCode = async (attendee) => {
     try {
         const hashedData = JSON.stringify({
-          //  id: attendee.id,
             firstName: attendee.firstName,
             lastName: attendee.lastName
             
@@ -13,7 +12,6 @@ const generateQrCode = async (attendee) => {
         const fileName = `${attendee.firstName}.png`;
         const filePath = path.join(__dirname, 'qr_codes', fileName); 
 
-        // Generate QR code
         await QRCode.toFile(filePath, hashedData, {
             errorCorrectionLevel: 'H'
         });
